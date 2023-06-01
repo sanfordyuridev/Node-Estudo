@@ -5,7 +5,8 @@ const rotas = {
     '/': 'Estudando o Node',
     '/biceps': 'Exercícios: Rosca Scott, Martelo, Rosca direta com barra W',
     '/costas': 'Exercícios: Puxada alta, remada unilateral, remada cavalinho',
-    '/posterior-de-pernas': 'Exercícios: Stiff, Mesa flexora, Cadeira flexora'
+    '/posterior-de-pernas': 'Exercícios: Stiff, Mesa flexora, Cadeira flexora',
+    '/peitoral': 'Exercícios: Peitoral Fly, Supino 45, Crossover'
 };
 
 const server = http.createServer((req, res) => {
