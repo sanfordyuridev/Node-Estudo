@@ -2,6 +2,8 @@ import express from "express";
 
 const app = express();
 
+app.use(express.json());
+
 const exercicios = [
     {id: 1, "nome": "rosca direta", "grupo": "Biceps"},
     {id: 2, "nome": "rosca inversa", "grupo": "Biceps"},
@@ -17,6 +19,11 @@ app.get('/', (req, res) => {
 app.get('/biceps', (req, res) => {
     const exerciciosBiceps = exercicios.filter((exercicio) => exercicio.grupo === "Biceps");
     res.status(200).json(exerciciosBiceps);
+});
+
+app.post('/biceps', (req, res) => {
+    exercicios.push(req.body);
+    res.status(201).send('Exercício cadastrado com sucesso'); 
 });
 
 export default app;
