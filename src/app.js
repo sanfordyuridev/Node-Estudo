@@ -26,4 +26,15 @@ app.post('/biceps', (req, res) => {
     res.status(201).send('Exercício cadastrado com sucesso'); 
 });
 
+app.put('/biceps/:id', (req, res) => {
+    const index = buscaExercicio('Biceps', req.params.id);
+    exercicios[index] = req.body;
+    res.status(200).json(exercicios);
+});
+
+function buscaExercicio(grupo, id) {
+    const ex = exercicios.filter((exercicio) => exercicio.grupo === grupo);
+    return ex.findIndex((ex) => ex.id == id);
+}
+
 export default app;
