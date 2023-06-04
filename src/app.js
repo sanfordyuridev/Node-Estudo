@@ -1,5 +1,6 @@
 import express from "express";
 import db from "./config/dbConnect.js";
+import exercicios from "./models/Exercicio.js";
 
 db.on("error", console.log.bind(console, 'Erro de conexão'));
 db.once("open", () => {
@@ -10,21 +11,14 @@ const app = express();
 
 app.use(express.json());
 
-const exercicios = [
-    {id: 1, "nome": "rosca direta", "grupo": "Biceps"},
-    {id: 2, "nome": "rosca inversa", "grupo": "Biceps"},
-    {id: 3, "nome": "puxada alta", "grupo": "Dorsal"},
-    {id: 4, "nome": "remada curvada", "grupo": "Dorsal"},
-    {id: 5, "nome": "crussifixo", "grupo": "Peitoral"},
-];
-
 app.get('/', (req, res) => {
     res.status(200).send('Lista de exercícios para ficar boladão');
 });
 
-app.get('/biceps', (req, res) => {
-    const exerciciosBiceps = exercicios.filter((exercicio) => exercicio.grupo === "Biceps");
-    res.status(200).json(exerciciosBiceps);
+app.get("/biceps", async (req, res) => {
+    exercicios.find((err, exercicios) => {
+        res.status(200).json(exercicios);
+    });
 });
 
 app.post('/biceps', (req, res) => {
