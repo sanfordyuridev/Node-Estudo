@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Constantes from "../config/Utils.js";
 
 const exercicioSchema = new mongoose.Schema(
     {
@@ -8,6 +9,6 @@ const exercicioSchema = new mongoose.Schema(
     }
 );
 
-const exercicios = mongoose.model('Exercicios', exercicioSchema);
+const exercicios = mongoose.model(Constantes.NOME_SCHEMA, exercicioSchema);
 
 export default exercicios;
