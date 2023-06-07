@@ -16,6 +16,17 @@ class ExercicioController {
         });
     }
 
+    static cadastrarExercicio = (req, res) => {
+        let exercicio = new exercicios(req.body);
+        exercicio.save((err) => {
+            if(err) {
+                res.status(500).send({message: `Erro ao cadastrar exercício: ${err.message}`})
+            } else {
+                res.status(201).json(exercicio);
+            }
+        });
+    }
+
 }
 
 export default ExercicioController;
