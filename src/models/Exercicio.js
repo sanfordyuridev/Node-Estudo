@@ -3,9 +3,9 @@ import Constantes from "../config/Utils.js";
 
 const exercicioSchema = new mongoose.Schema(
     {
-        id: {type: String},
-        grupo: {type: String, required: true},
-        nome: {type: String, required: true}
+        id: { type: String },
+        grupo: { type: String, required: true },
+        nome: { type: String, required: true }
     }
 );
 
