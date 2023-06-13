@@ -9,6 +9,6 @@ const exercicioSchema = new mongoose.Schema(
     }
 );
 
-const exercicios = mongoose.model(Constantes.NOME_SCHEMA, exercicioSchema);
+const exercicios = mongoose.model(Constantes.NOME_SCHEMA_EXERCICIOS, exercicioSchema);
 
 export default exercicios;
